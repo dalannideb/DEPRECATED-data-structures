@@ -186,7 +186,7 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
 
         for (Entry<K, V> entry : table[i]) {
           int bucketIndex = normalizeIndex(entry.hash);
-          LinkedList<Entry<K, V>> bucket = newTable[bucketIndex];
+          LinkedList<Entry<K, V>> bucket = table[bucketIndex];
           if (bucket == null) newTable[bucketIndex] = bucket = new LinkedList<>();
           bucket.add(entry);
         }
